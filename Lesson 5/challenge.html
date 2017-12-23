@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="challengestyling.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+    var CounterComponent = React.createClass({
+      getInitialState: function() {
+        return {
+          count: 0
+        }
+      },
+      updateCountByOne: function() {
+        this.setState({
+          count: this.state.count + 1
+        })
+      },
+      updateCountByFive: function() {
+        this.setState({
+          count: this.state.count + 5
+        })
+      },
+      updateCountByTen: function() {
+        this.setState({
+          count:this.state.count + 10
+        })
+      },
+      resetCount: function() {
+        this.setState({
+          count: 0
+        })
+      },
+      render: function(){
+        return (
+          <div className='container'>
+            <h1 className='container h1'>Count: {this.state.count}</h1>
+            <div className='container .btn'>
+              <button className='btn blue-btn' onClick={this.updateCountByOne}> Add 1 </button>
+              <button className='btn green-btn' onClick={this.updateCountByFive}> Add 5 </button>
+              <button className='btn purple-btn' onClick={this.updateCountByTen}> Add 10 </button>
+              <br />
+              <button className='btn gray-btn' onClick={this.resetCount}> Reset Count </button>
+            </div>
+          </div>
+        )
+      }
+    });
+
+    ReactDOM.render(
+      <CounterComponent />,
+      document.getElementById('app')
+    );
+    </script>
+  </body>
+</html>
